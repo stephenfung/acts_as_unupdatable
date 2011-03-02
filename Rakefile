@@ -15,8 +15,8 @@ Jeweler::Tasks.new do |gem|
   gem.name = "acts_as_unupdatable"
   gem.homepage = "http://github.com/stephenfung/acts_as_unupdatable"
   gem.license = "MIT"
-  gem.summary = %Q{TODO: one-line summary of your gem}
-  gem.description = %Q{TODO: longer description of your gem}
+  gem.summary = "This allows you to use acts_as_unupdatable in ActiveRecord which will block updates from being saved."
+  gem.description = "This allows you to use acts_as_unupdatable in ActiveRecord which will block updates from being saved, but allow changes to be made in-memory."
   gem.email = "stephen.fung@archonsystems.com"
   gem.authors = ["Stephen Fung"]
   # Include your dependencies below. Runtime dependencies are required when using your gem,
@@ -25,22 +25,6 @@ Jeweler::Tasks.new do |gem|
   #  gem.add_development_dependency 'rspec', '> 1.2.3'
 end
 Jeweler::RubygemsDotOrgTasks.new
-
-require 'rake/testtask'
-Rake::TestTask.new(:test) do |test|
-  test.libs << 'lib' << 'test'
-  test.pattern = 'test/**/test_*.rb'
-  test.verbose = true
-end
-
-require 'rcov/rcovtask'
-Rcov::RcovTask.new do |test|
-  test.libs << 'test'
-  test.pattern = 'test/**/test_*.rb'
-  test.verbose = true
-end
-
-task :default => :test
 
 require 'rake/rdoctask'
 Rake::RDocTask.new do |rdoc|
