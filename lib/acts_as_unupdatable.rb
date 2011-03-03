@@ -22,7 +22,9 @@ module ActiveRecord
             before_validation :block_update, :on => :update
 
             define_method "block_update" do
-              raise Exceptions::VersionedObjectUnupdatableException.new("#{self.class} is unupdatable - it can only be created; changes should create a new version")
+              #If this object hasn't changed, then don't raise an exception.
+			  #This allows saving a parent object that includes this, as long as it doesn't modify it.			 
+			  raise Exceptions::VersionedObjectUnupdatableException.new("#{self.class} is unupdatable - it can only be created; changes should create a new version") unless !self.changed?
             end
           end
         end
